@@ -15,7 +15,6 @@ URL:		http://packages.qa.debian.org/g/galternatives.html
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext-tools
 BuildRequires:	intltool
-BuildRequires:	python-devel
 BuildRequires:	python-pygtk-glade
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
