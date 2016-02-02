@@ -20,6 +20,7 @@ BuildRequires:	python-pygtk-glade
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	/usr/sbin/update-alternatives
+Requires:	polkit
 Requires:	python-pygtk-glade
 Requires:	python-pygtk-gtk
 BuildArch:	noarch
