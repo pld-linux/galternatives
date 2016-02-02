@@ -80,8 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc debian/copyright
-%doc TODO debian/changelog
+%doc TODO debian/changelog debian/copyright
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/galternatives
 %attr(755,root,root) %{_bindir}/galternatives
 %attr(755,root,root) %{_sbindir}/galternatives
