@@ -13,10 +13,9 @@ Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-fedora.patch
 URL:		http://packages.qa.debian.org/g/galternatives.html
 BuildRequires:	desktop-file-utils
-BuildRequires:	gettext
+BuildRequires:	gettext-tools
 BuildRequires:	intltool
 BuildRequires:	python-devel
-BuildRequires:	python-pygtk-devel
 BuildRequires:	python-pygtk-glade
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
