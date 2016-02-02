@@ -1,7 +1,7 @@
 Summary:	Alternatives Configurator
 Name:		galternatives
 Version:	0.13.5
-Release:	0.1
+Release:	1
 License:	GPL+
 Group:		Applications/System
 Source0:	http://ftp.debian.org/debian/pool/main/g/galternatives/%{name}_%{version}+nmu4.tar.xz
