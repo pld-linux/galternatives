@@ -9,6 +9,7 @@ Source0:	http://pkgs.fedoraproject.org/repo/pkgs/galternatives/%{name}_%{version
 # Source0-md5:	6148901a78623e85e3265a63588a2d23
 Source1:	org.fedoraproject.pkexec.run-%{name}.policy
 Source2:	%{name}.pamd
+Source3:	%{name}.sh
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-fedora.patch
 URL:		http://packages.qa.debian.org/g/galternatives.html
@@ -54,11 +55,7 @@ desktop-file-install --delete-original	\
 # polkit/pkexec wrapper
 install -d $RPM_BUILD_ROOT%{_sbindir}
 mv $RPM_BUILD_ROOT%{_bindir}/galternatives $RPM_BUILD_ROOT%{_sbindir}
-cat << 'EOF' > $RPM_BUILD_ROOT%{_bindir}/galternatives
-#!/bin/sh
-pkexec --disable-internal-agent %{_sbindir}/galternatives "$@"
-EOF
-chmod a+rx $RPM_BUILD_ROOT%{_bindir}/galternatives
+install -p %{SOURCE3} $RPM_BUILD_ROOT%{_bindir}/galternatives
 
 # polkit policy
 install -d $RPM_BUILD_ROOT%{_datadir}/polkit-1/actions
