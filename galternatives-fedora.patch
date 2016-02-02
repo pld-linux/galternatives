@@ -64,6 +64,15 @@
              for count in range(len (self.slaves)):
 --- galternatives-0.13.5/galternatives/main.py~	2016-02-02 21:17:26.000000000 +0200
 +++ galternatives-0.13.5/galternatives/main.py	2016-02-02 21:20:03.389884431 +0200
+@@ -13,7 +13,7 @@
+ 
+ _ = gettext.gettext
+ 
+-UPDATE_ALTERNATIVES = '/usr/bin/update-alternatives'
++UPDATE_ALTERNATIVES = '/usr/sbin/update-alternatives'
+ 
+ DEBUG = False
+ def print_debug (str):
 @@ -284,9 +284,15 @@
          alt = self.alternative
          unixname = alt.get_unixname ()
