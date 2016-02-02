@@ -1,5 +1,5 @@
---- setup.py	2004-06-14 18:04:11.000000000 -0400
-+++ setup.py.new	2006-12-27 20:28:20.000000000 -0500
+--- ./setup.py	2004-06-14 18:04:11.000000000 -0400
++++ ./setup.py.new	2006-12-27 20:28:20.000000000 -0500
 @@ -16,14 +16,6 @@
      os.chdir ('%s/translations' % (curdir))
      os.system ('./update-translations.sh')
@@ -15,8 +15,8 @@
      os.chdir (curdir)
  
  if __name__ == '__main__' :
---- galternatives/main.py	2005-08-17 21:21:04.000000000 -0400
-+++ galternatives/main.py.new	2006-12-27 22:30:19.000000000 -0500
+--- ./galternatives/main.py	2005-08-17 21:21:04.000000000 -0400
++++ ./galternatives/main.py.new	2006-12-27 22:30:19.000000000 -0500
 @@ -1,8 +1,11 @@
  #!/usr/bin/python
  import pygtk
@@ -31,8 +31,8 @@
  
  from common import PACKAGE
  import sys, os, gettext
---- galternatives/alternative.py	2004-11-21 23:02:33.000000000 -0500
-+++ galternatives/alternative.py.new	2005-11-10 01:00:25.000000000 -0500
+--- ./galternatives/alternative.py	2004-11-21 23:02:33.000000000 -0500
++++ ./galternatives/alternative.py.new	2005-11-10 01:00:25.000000000 -0500
 @@ -64,7 +64,7 @@
              pass
  
@@ -62,9 +62,9 @@
              print_debug (odict)
              optslaves = []
              for count in range(len (self.slaves)):
---- galternatives/main.py	2005-08-17 21:21:04.000000000 -0400
-+++ galternatives/main.py.new	2005-11-10 01:01:12.000000000 -0500
-@@ -282,8 +282,16 @@
+--- galternatives-0.13.5/galternatives/main.py~	2016-02-02 21:17:26.000000000 +0200
++++ galternatives-0.13.5/galternatives/main.py	2016-02-02 21:20:03.389884431 +0200
+@@ -284,9 +284,15 @@
          alt = self.alternative
          unixname = alt.get_unixname ()
          option = self.options_model.get_value (iter, self.OPTIONS)
@@ -73,14 +73,12 @@
 +        for opt in alt.get_options ():
 +            inits = opt['service']
  
--        result = os.system ('/usr/sbin/update-alternatives --set %s %s  > /dev/null 2>&1' % (unixname, option))
-+        if inits == '':
-+            result = os.system ('/usr/sbin/update-alternatives --set %s %s  > /dev/null 2>&1' % (unixname, option))
-+        else:
-+            result = os.system ('/usr/sbin/update-alternatives --set %s %s  > /dev/null 2>&1' % (unixname, option))
-+            result2 = os.system ('/sbin/chkconfig %s on > /dev/null 2>&1' % (inits))
+         cmd = '%s --set %s %s  > /dev/null 2>&1' % (UPDATE_ALTERNATIVES, unixname, option)
+         result = os.system (cmd)
++        if inits != '':
++            os.system ('/sbin/chkconfig %s on > /dev/null 2>&1' % (inits))
  
-         print_debug ('/usr/sbin/update-alternatives --set %s %s > /dev/null 2>&1' % (unixname, option))
+         print_debug (cmd)
          print_debug ('Result: %d' % (result))
 @@ -347,7 +353,7 @@
                                       text=self.SLAVEPATH)

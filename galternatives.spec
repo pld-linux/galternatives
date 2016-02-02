@@ -1,12 +1,11 @@
 Summary:	Alternatives Configurator
 Name:		galternatives
-Version:	0.13.4
+Version:	0.13.5
 Release:	1
 License:	GPL+
 Group:		Applications/System
-#Source0:	http://ftp.debian.org/debian/pool/main/g/galternatives/%{name}_%{version}.tar.gz
-Source0:	http://pkgs.fedoraproject.org/repo/pkgs/galternatives/%{name}_%{version}.tar.gz/6148901a78623e85e3265a63588a2d23/galternatives_%{version}.tar.gz
-# Source0-md5:	6148901a78623e85e3265a63588a2d23
+Source0:	http://ftp.debian.org/debian/pool/main/g/galternatives/%{name}_%{version}+nmu4.tar.xz
+# Source0-md5:	c1ce820069b9150020a9ba85413044fa
 Source1:	org.fedoraproject.pkexec.run-%{name}.policy
 Source2:	%{name}.pamd
 Source3:	%{name}.sh
@@ -19,6 +18,8 @@ BuildRequires:	intltool
 BuildRequires:	python-pygtk-glade
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	/usr/sbin/update-alternatives
 Requires:	polkit
 Requires:	python-pygtk-glade
@@ -32,9 +33,10 @@ system administrator to choose what program should provide a given
 service
 
 %prep
-%setup -q
-%patch0 -p0
-%patch1 -p0
+%setup -qc
+mv galternatives .tmp; mv .tmp/* .
+%patch0 -p1
+%patch1 -p1
 
 # To silence rpmlint
 sed -i '/^#!\%{_prefix}\/bin\/python/ d' galternatives/*.py
