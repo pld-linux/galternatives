@@ -1,2 +1,2 @@
 #!/bin/sh
-pkexec --disable-internal-agent /usr/sbin/galternatives "$@"
+exec pkexec --disable-internal-agent /usr/sbin/galternatives "$@"
