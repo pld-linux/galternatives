@@ -1,7 +1,7 @@
 Summary:	Alternatives Configurator
 Name:		galternatives
 Version:	0.13.4
-Release:	0.1
+Release:	1
 License:	GPL+
 Group:		Applications/System
 #Source0:	http://ftp.debian.org/debian/pool/main/g/galternatives/%{name}_%{version}.tar.gz
@@ -22,7 +22,6 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	/usr/sbin/update-alternatives
 Requires:	python-pygtk-glade
 Requires:	python-pygtk-gtk
-Requires:	usermode
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
