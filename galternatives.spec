@@ -35,8 +35,8 @@ service
 %prep
 %setup -qc
 mv galternatives .tmp; mv .tmp/* .
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 # To silence rpmlint
 sed -i '/^#!\%{_prefix}\/bin\/python/ d' galternatives/*.py
