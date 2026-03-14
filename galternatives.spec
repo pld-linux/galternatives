@@ -1,7 +1,7 @@
 Summary:	Alternatives Configurator
 Name:		galternatives
 Version:	0.13.5
-Release:	1
+Release:	2
 License:	GPL+
 Group:		Applications/System
 Source0:	http://ftp.debian.org/debian/pool/main/g/galternatives/%{name}_%{version}+nmu4.tar.xz
@@ -40,6 +40,7 @@ mv galternatives .tmp; mv .tmp/* .
 
 # To silence rpmlint
 sed -i '/^#!\%{_prefix}\/bin\/python/ d' galternatives/*.py
+sed -i '1s|^#!/usr/bin/python$|#!%{__python}|' galternatives/galternatives
 
 %build
 %py_build
